@@ -1,6 +1,7 @@
 # PiTCRU 
 🏎️ Deployment repo for PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/)
 ## Technologies Used
+Code examples are pseudocoded as needed <br>
 🏎️ PiTCRU is a node.js/express app with PostgreSQL backend.<br>
 🏎️ This app implements node's [postgres library](https://www.npmjs.com/package/postgres) <br>
 <details>
@@ -83,7 +84,7 @@ seedPaginator: async function (db) {
 getCars: async function (db, offset=0) {
     const start = 12 * offset
     let cars = []
-    for (let i=start; i<start+12; i++) {
+    for start to start+12 {
         await db `SELECT get_cars(${i});`
             .then(car => cars.push(car))
     }

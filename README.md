@@ -1,5 +1,5 @@
 # PiTCRU 
-🏎️ Deployment repo for PiTCRU web application 
+🏎️ Deployment repo for PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/)
 ## Technologies Used
 🏎️ PiTCRU is a node.js/express app with PostgreSQL backend.<br>
 🏎️ This app implements node's [postgres library](https://www.npmjs.com/package/postgres) <br>

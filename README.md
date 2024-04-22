@@ -1,7 +1,7 @@
 # PiTCRU 
-🏎️ Deployment repo for demo PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/)
-🏎️ Simply clone, add API key and NeonDB connection string to environment variables, and run index.js to seed db
-🏎️ Refer to models folder for seed script and SQL query examples
+🏎️ Deployment repo for demo PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/) <br>
+🏎️ Simply clone, add API key and NeonDB connection string to environment variables, and run index.js to seed db <br>
+🏎️ Refer to models folder for seed script and SQL query examples <br>
 
 
 ## Known Limitations

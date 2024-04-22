@@ -1,16 +1,11 @@
 module.exports = {
     getCar: async function (db, id) {
-        await db `SELECT * FROM cars WHERE id = ${id}`
-            .then(query => console.log(query))
+        const car = await db `SELECT get_car_by_id(${id});`
+        return car
     },
 
-    getCars: async function (db, offset=0) {
-        const start = 12 * offset
-        let cars = []
-        for (let i=start; i<start+12; i++) {
-            await db `SELECT get_cars(${i});`
-                .then(car => cars.push(car))
-        }
+    getCars: async function (db, take=12, page=0) {
+        const cars = await db `SELECT * FROM cars LIMIT ${take} OFFSET ${page};`
         return cars
     },
 

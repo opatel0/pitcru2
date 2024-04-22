@@ -8,7 +8,6 @@ const express = require('express');
 /* Require the db connection, models, and seed data
 --------------------------------------------------------------- */
 const db = require('./models');
-const seedCtrl = require('./controllers/seed')
 const carsCtrl = require('./controllers/cars')
 
 
@@ -39,7 +38,6 @@ app.get('/about', function (req, res) {
     res.render('about')
 })
 
-app.use('/seed', seedCtrl)
 app.use('/cars', carsCtrl)
 
 

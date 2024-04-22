@@ -1,28 +1,19 @@
 # PiTCRU 
-🏎️ Deployment repo for PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/)
+🏎️ Deployment repo for demo PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/)
+
+
+## Known Limitations
+🏎️ PiTCRU was originally designed as a Django/Python web application, deployed [here](https://pitcrudjango-64042ab7cb0b.herokuapp.com/) and managed [here](https://github.com/opatel0/pitcru) <br>
+🏎️ The purpose of this refactored application is to showcase handwritten SQL statements. <br>
+🏎️ The backend design is vulnerable to SQL Injection and does not follow quality standards of web apps. <br>
+🏎️ The application is minimally styled compared to its parent <br>
+
+
 ## Technologies Used
-Code examples are pseudocoded as needed <br>
 🏎️ PiTCRU is a node.js/express app with PostgreSQL backend.<br>
 🏎️ This app implements node's [postgres library](https://www.npmjs.com/package/postgres) <br>
-<details>
-<summary>Model</summary>
-<pre>
-getCar: async function (db, id) {
-    await db `SELECT * FROM cars WHERE id = ${id}`
-}
-</pre>
-</details>
-<details>
-<summary>Route</summary>
-<pre>
-router.get('/:id', (req, res) => {
-    db.car.getCar(db.sql, req.params.id)
-        .then(car => res.render('car-details', {car: car}))
-})
-</pre>
-</details>
 🏎️ Vehicle data is seeded from API Ninjas' Cars API.<br>
-🏎️ The seed script `seedCars()` can be found in 'models/seed.js' and is pseudocoded below
+🏎️ The seed script can be found in 'models/seed.js' and can be run as `node models/index.js` from root of project after NEONDB connection string and API-Ninjas API Key have been provided in .env
 <details>
 <summary>Seed Script Pseudocode</summary>
 <pre>
@@ -59,7 +50,6 @@ for car,year of cars,years:
         );`
 </pre>
 </details>
-🏎️ The seed script is currently run by simply accessing the seed route. <br> 
 🏎️ The paginator is managed through a stored function as defined below. <br>
 <details>
 <summary>Paginator</summary>

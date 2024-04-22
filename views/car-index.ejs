@@ -3,24 +3,23 @@
     <%- include('./partials/nav') %>
     <div class="heading-box" style="width: 80%;"><h2 class="heading">Car List</h2></div>
     <div class ='car-box' style="width: 80%; height: 90%;">
-     <div class="car-grid">
-     <% for (car of cars) { %>
-     <li>
-         <a href="/cars/<%-car.id%>">
-                 <div class="car-link">
-             <h3><%- car[0].get_cars.replaceAll( `(`, '' ).replaceAll(`)`,'').replaceAll(`"`, '').replaceAll(`,`, ' ') %><h3>
-             </div>
-             </a>
-         </li>
-     <% } %>
-     </div>
-     </div>
-     <section id="paginator">
+    <div class="car-grid">
+    <% for (car of cars) { %>
+    <li>
+        <a href="/cars/<%-car.id%>">
+            <div class="car-link">
+            <h3><%- `${car.year} ${car.make} ${car.model}` %><h3>
+            </div>
+        </a>
+    </li>
+    <% } %>
+    </div>
+    </div>
+    <section id="paginator">
         <a href=<%-`/cars/?page=${Number(offset)-1}`%>><%- offset > 1 ? '< ' : '' %></a>
             Page <span id="page-number"><%- offset %></span>
             of <%- count[0].count %>
-        <a href=<%-`/cars/?page=${Number(offset)+1}`%>><%- offset < count[0].count ? '>' : '' %></a>
+        <a href=<%-`/cars/?page=${Number(offset)+1}`%>><%- Number(offset) < count[0].count ? '>' : '' %></a>
     </section>
- </body>
 </body>
 </html>

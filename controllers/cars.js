@@ -4,7 +4,7 @@ const db = require('../models')
 
 router.get('/', (req, res) => {
     let offset = req.query.page ? req.query.page : 1
-    db.car.getCars(db.sql, offset-1)
+    db.car.getCars(db.sql, 12, offset-1)
         .then(cars => db.car.getCarCount(db.sql)
         .then(count => res.render('car-index', {cars: cars, count: count, offset: offset})
         ))

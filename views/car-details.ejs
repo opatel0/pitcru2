@@ -3,31 +3,25 @@
     <%- include('./partials/nav') %>
     <div class="heading-box" style="width: 80%;"><h2 class="heading">Car List</h2></div>
     <div class ='car-box' style="width: 80%; height: 90%;">
-     <div class="car-grid">
-     <% for (car of cars) { %>
-     <li>
-         <a href="/cars/<%-car.id%>">
-                 <div class="car-link">
-             <h3>Model: <%-car.model%><h3>
-             </div>
-             </a>
-         <img  class="car-image" src=<%-car.car_image%>>
-         <div class="car-data">
-         <p>City MPG: <%-car.city_mpg%></p>
-         <p>Class: <%-car.car_class%></p>
-         <p>Combo MPG: <%-car.combination_mpg%></p>
-         <p>Cylinders: <%-car.cylinders%></p>
-         <p>Displacement: <%-car.displacement%></p>
-         <p>Drive Type: <%-car.drive%></p>
-         <p>Fuel Type: <%-car.fuel_type%></p>
-         <p>Highway MPG: <%-car.highway_mpg%></p>
-         <p>Make: <%-car.make%></p>
-         <p>Transmission: <%-car.transmission%></p>
-         <p>Year: <%-car.year%></p>     
-         </div>
-         </li>
-     <% } %>
-     </div>
-     </div>
+    <div class="car-grid">
+    <li>
+        <a href="/cars/<%-car[0].id%>">
+                <div class="car-link">
+            <h3><%-`${car[0].year} ${car[0].make} ${car[0].model}`%><h3>
+            </div>
+            </a>
+        <div class="car-data">
+        <p>City MPG: <%-car[0].city_mpg%></p>
+        <p>Class: <%-car[0].class%></p>
+        <p>Combo MPG: <%-car[0].combination_mpg%></p>
+        <p>Cylinders: <%-car[0].cylinders%></p>
+        <p>Drive Type: <%-car[0].drive%></p>
+        <p>Fuel Type: <%-car[0].fuel_type%></p>
+        <p>Highway MPG: <%-car[0].highway_mpg%></p>
+        <p>Transmission: <%-car[0].transmission%></p>  
+        </div>
+        </li>
+    </div>
+    </div>
  </body>
 </html>

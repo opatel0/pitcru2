@@ -1,6 +1,10 @@
 module.exports = {
     getCar: async function (db, id) {
-        const car = await db `SELECT get_car_by_id(${id});`
+        const car = await db 
+            `SELECT * FROM cars 
+                JOIN car_data 
+                ON cars.id = car 
+                WHERE cars.id = ${id};`
         return car
     },
 

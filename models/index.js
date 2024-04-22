@@ -82,30 +82,16 @@ const deletePaginator = async function (db) {
     return paginator
 }
 
-const seedDetailsByIdIndex = async function (db) {
+const seedDetailsIndex = async function (db) {
     const index = await db `
-        CREATE INDEX get_car_details_by_id ON cars (id);
+        CREATE INDEX link ON car_data (car);
     `
     return index
 }
 
-const deleteDetailsByIdIndex = async function (db) {
+const deleteDetailsIndex = async function (db) {
     const index = await db `
-        DROP INDEX IF EXISTS get_car_details_by_id;
-    `
-    return index
-}
-
-const seedDetailsByCarIndex = async function (db) {
-    const index = await db `
-        CREATE INDEX get_car_details_by_car ON cars (year, make, model);
-    `
-    return index
-}
-
-const deleteDetailsByCarIndex = async function (db) {
-    const index = await db `
-        DROP INDEX IF EXISTS get_car_details_by_car;
+        DROP INDEX IF EXISTS car_data;
     `
     return index
 }
@@ -138,7 +124,8 @@ const seedCars = async function (db) {
                         );`
                     let carId = await db `SELECT id FROM cars 
                         WHERE year = ${carData.year} AND make LIKE ${carData.make} AND model LIKE ${carData.model};`
-                    await db `INSERT INTO car_data (
+                    await db 
+                        `INSERT INTO car_data (
                             city_mpg,
                             class,
                             combination_mpg,
@@ -174,12 +161,12 @@ const main = function (db) {
         .then(() => deleteCarsTable(db)
         .then(() => deletePaginator(db)
         .then(() => deletePaginatorType(db)
-        .then(() => deleteDetailsByIdIndex(db)
-        .then(() => deleteDetailsByCarIndex(db)
+        .then(() => deleteDetailsIndex(db)
         .then(() => seedCarsTable(db)
         .then(() => seedCarDataTable(db)
         .then(() => seedPaginatorType(db)
         .then(() => seedPaginator(db)
+        .then(() => seedDetailsIndex(db)
         .then(() => seedCars(db)
     ))))))))))
 }

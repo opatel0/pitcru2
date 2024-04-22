@@ -1,10 +1,12 @@
 # PiTCRU 
 🏎️ Deployment repo for demo PiTCRU web application, deployed [here](https://pitcru-b957da173327.herokuapp.com/)
+🏎️ Simply clone, add API key and NeonDB connection string to environment variables, and run index.js to seed db
+🏎️ Refer to models folder for seed script and SQL query examples
 
 
 ## Known Limitations
 🏎️ PiTCRU was originally designed as a Django/Python web application, deployed [here](https://pitcrudjango-64042ab7cb0b.herokuapp.com/) and managed [here](https://github.com/opatel0/pitcru) <br>
-🏎️ The purpose of this refactored application is to showcase handwritten SQL statements. <br>
+🏎️ The purpose of this minimally styled refactored application is to showcase handwritten SQL statements. <br>
 🏎️ The backend design is vulnerable to SQL Injection and does not follow quality standards of web apps. <br>
 🏎️ The application is minimally styled compared to its parent <br>
 

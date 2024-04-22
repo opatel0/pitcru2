@@ -37,6 +37,7 @@ const seedCarDataTable = async function (db) {
             drive text,
             fuel_type text,
             highway_mpg integer,
+            transmission text,
             car integer REFERENCES cars ON DELETE CASCADE
         );`
     return table
@@ -134,6 +135,29 @@ const seedCars = async function (db) {
                             ${carData.make},
                             ${carData.model},
                             ${carData.year}
+                        );`
+                    let carId = await db `SELECT id FROM cars 
+                        WHERE year = ${carData.year} AND make LIKE ${carData.make} AND model LIKE ${carData.model};`
+                    await db `INSERT INTO car_data (
+                            city_mpg,
+                            class,
+                            combination_mpg,
+                            cylinders,
+                            drive,
+                            fuel_type,
+                            highway_mpg,
+                            transmission,
+                            car
+                        ) VALUES (
+                            ${carData.city_mpg},
+                            ${carData.class},
+                            ${carData.combination_mpg},
+                            ${carData.cylinders},
+                            ${carData.drive},
+                            ${carData.fuel_type},
+                            ${carData.highway_mpg},
+                            ${carData.transmission},
+                            ${carId[0].id}
                         );`
                 }
                 catch (error) {
